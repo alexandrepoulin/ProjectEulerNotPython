@@ -1,0 +1,138 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4171,        129]
+NotebookOptionsPosition[      3846,        113]
+NotebookOutlinePosition[      4201,        128]
+CellTagsIndexPosition[      4158,        125]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"n_", "?", "NumericQ"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "x0", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"x0", "=", 
+      RowBox[{"Min", "[", 
+       RowBox[{"(", 
+        RowBox[{"x", "/.", 
+         RowBox[{"NSolve", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"1", "-", 
+             RowBox[{"Sqrt", "[", 
+              RowBox[{"1", "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"x", "-", "1"}], ")"}], "^", "2"}]}], "]"}]}], 
+            "\[Equal]", 
+            RowBox[{
+             RowBox[{"1", "/", "n"}], "*", "x"}]}], ",", "x"}], "]"}]}], 
+        ")"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{"2", "n"}], ")"}]}], 
+         RowBox[{"x0", "^", "2"}]}], "+", 
+        RowBox[{"NIntegrate", "[", 
+         RowBox[{
+          RowBox[{"1", "-", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{"1", "-", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"x", "-", "1"}], ")"}], "^", "2"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "x0", ",", "1"}], "}"}]}], "]"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        FractionBox["\[Pi]", "4"]}], ")"}]}]}]}], "\[IndentingNewLine]", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"max", "=", "10000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"min", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"target", "=", "0.001"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"val", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"While", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Abs", "[", 
+     RowBox[{"val", "-", "target"}], "]"}], ">", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mid", "=", 
+     RowBox[{"0.5", "*", 
+      RowBox[{"(", 
+       RowBox[{"max", "+", "min"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"val", "=", 
+     RowBox[{"f", "[", "mid", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"val", ">", "target"}], ",", 
+      RowBox[{"min", "=", "mid"}], ",", 
+      RowBox[{"max", "=", "mid"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Ceiling", "[", 
+  RowBox[{"0.5", "*", 
+   RowBox[{"(", 
+    RowBox[{"min", "+", "max"}], ")"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.753565723473217*^9, 3.7535657762206807`*^9}, {
+  3.7535658983334904`*^9, 3.7535662572936163`*^9}, {3.753566506583165*^9, 
+  3.7535665109617777`*^9}, {3.7535665588244333`*^9, 3.7535665746903543`*^9}, {
+  3.7535666170620975`*^9, 3.7535666345285068`*^9}, {3.7535666648232484`*^9, 
+  3.7535666661838436`*^9}, {3.753566880059785*^9, 3.753566942570775*^9}, {
+  3.7535669918100243`*^9, 3.7535672863889627`*^9}, {3.753567341600707*^9, 
+  3.7535676467906313`*^9}, {3.7535676929318504`*^9, 3.7535677598767204`*^9}}],
+
+Cell[BoxData["2240"], "Output",
+ CellChangeTimes->{{3.7535677013688912`*^9, 3.7535677606234474`*^9}}]
+}, Open  ]]
+},
+WindowSize->{1064, 1837},
+WindowMargins->{{Automatic, -1080}, {-264, Automatic}},
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
+StyleDefinitions->"ReverseColor.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3146, 85, 333, "Input"],
+Cell[3729, 109, 101, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
